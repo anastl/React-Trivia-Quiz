@@ -22,10 +22,30 @@ function ContextProvider( { children } ) {
         } )
     }
 
+    function reset() {
+        setSettings( {
+            amount: 5,
+            category: '',
+            difficulty: '',
+            type: ''
+        } )
+        setStart( prev => !prev )
+        setQuestions( [] )
+        setSelected( [] )
+    }
+
+    function again() {
+        setQuestions( [] )
+        setSelected( [] )
+        setStart( prev => !prev )
+    }
+
     return (
         <Context.Provider
         value={
             {
+                reset,
+                again,
                 start,
                 settings,
                 selected, 

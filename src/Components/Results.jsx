@@ -4,7 +4,7 @@ import { Context } from "../Context/QuizContext"
 import { nanoid } from "../../node_modules/nanoid"
 
 export default function Results() {
-    const { questions, selected } = useContext( Context )
+    const { questions, selected, reset, again } = useContext( Context )
     let correct = 0
     const questionsArray = questions.map( ( {question, correctAnswer, allAnswers} ) => {
         const answers = allAnswers.map( answer => {
@@ -34,8 +34,6 @@ export default function Results() {
         )
     } )
 
-    // console.log( selected )
-
     return (
         <main>
             <h1 className="results--number">You got { correct }/{ questions.length } answers right! 🥳</h1>
@@ -46,13 +44,13 @@ export default function Results() {
                 <Link to='/start-quiz'>
                     <button 
                     className="play-again-btn"
-                    // onClick={ () => setStart( prev => !prev ) }
+                    onClick={ again }
                     >Play again</button>
                 </Link>
                 <Link to='/'>
                     <button 
                     className="change-settings-btn"
-                    // onClick={ () => setStart( prev => !prev ) }
+                    onClick={ reset }
                     >Change settings</button>
                 </Link>
             </div>

@@ -52,8 +52,6 @@ function Quiz() {
             </main> 
         )
     }
-
-    console.log( existResults )
     
     // Go through each question object { question, correctAnswer and allAnswers }
     // to add each possible answer to a ( <label> <input> ) and then add
