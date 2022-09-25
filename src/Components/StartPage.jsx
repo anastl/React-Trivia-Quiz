@@ -12,7 +12,7 @@ export default function StartPage( ) {
     }
 
     return (
-        <main className="start-page">
+        <main>
             <h1>Quizzlical</h1>
             <form>
                 <label htmlFor='amount' >
