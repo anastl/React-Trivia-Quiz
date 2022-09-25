@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext } from "react"
 import { Link } from 'react-router-dom'
 import { Context } from "../Context/QuizContext"
 import "../CSS/App.css"
@@ -12,12 +12,12 @@ export default function StartPage( ) {
     }
 
     return (
-        <main className="initial--container">
+        <main className="start-page">
             <h1>Quizzlical</h1>
             <form>
                 <label htmlFor='amount' >
                     <input 
-                    min={5}
+                    placeholder={5}
                     type='number'
                     id='amount'
                     name='amount'
@@ -91,7 +91,7 @@ export default function StartPage( ) {
             </form>    
             <Link to='start-quiz'>
                 <button 
-                className="start-quiz-btn"
+                className="start-quiz-btn btn--shadow"
                 onClick={ () => setStart( prev => !prev ) }
                 >Start Quiz!</button>
             </Link>

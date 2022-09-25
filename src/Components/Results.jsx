@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { Link } from 'react-router-dom'
 import { Context } from "../Context/QuizContext"
 import { nanoid } from "../../node_modules/nanoid"
@@ -36,14 +36,14 @@ export default function Results() {
 
     return (
         <main>
-            <h1 className="results--number">You got { correct }/{ questions.length } answers right! 🥳</h1>
+            <h1 className="results--number">You got { correct }/{ questions.length } answers right! { correct >= questions.length / 2 ? '🥳' : '😢'}</h1>
             <div className="results--container">
                 { questionsArray }
             </div>
             <div className="btns--container">
                 <Link to='/start-quiz'>
                     <button 
-                    className="play-again-btn"
+                    className="play-again-btn btn--shadow"
                     onClick={ again }
                     >Play again</button>
                 </Link>

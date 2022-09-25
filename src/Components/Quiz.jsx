@@ -5,7 +5,7 @@ import { Context } from "../Context/QuizContext"
 import { getQuestions } from "../Utilities/getQuestions"
 
 function Quiz() {    
-    const { questions, start, settings, setQuestions, selected, setSelected } = useContext( Context )
+    const { questions, reset, start, settings, setQuestions, selected, setSelected } = useContext( Context )
     const [existResults, setExistResults] = useState( true )
     function addAnswer( event ) {
         const { name, value } = event.target
@@ -88,13 +88,22 @@ function Quiz() {
             <form className="questions--container">
                 { questionsArray }
             </form>
-            <Link to='/results'>
-                <button 
-                className="get-results-btn"
-                // onClick={ sendAnswers }
-                disabled={ Object.keys(selected).length === questions.length ? false : true }
-                >Get my score</button>
-            </Link>
+            
+            <div className="btns--container">
+                <Link to='/results'>
+                    <button 
+                    className="get-results-btn"
+                    // onClick={ sendAnswers }
+                    disabled={ Object.keys(selected).length === questions.length ? false : true }
+                    >Get my score</button>
+                </Link>            
+                <Link to='/'>
+                    <button 
+                    className="change-settings-btn"
+                    onClick={ reset }
+                    >Change settings</button>
+                </Link>
+            </div>
         </main>
     )
 }
